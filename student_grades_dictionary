@@ -1,0 +1,22 @@
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99, 
+  "Draco": 74,
+  "Neville": 62,
+}
+
+def grades(student_marks):
+  if student_marks>90:
+    return "Outstanding"
+  elif student_marks>=81 and student_marks<=90:
+    return "Exceeds Expectations"
+  elif student_marks>=71 and student_marks<=80:
+    return "Acceptable"
+  else:
+    return "Fail"
+
+student_grades = {}
+for key in student_scores:
+  student_grades[key] = grades(student_scores[key])
+print(student_grades)
