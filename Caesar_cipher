@@ -1,7 +1,11 @@
+
+
 #Encrpt func:
 def caeser_encrypt(text,shift):
     encrypted_list = []
     for i in text:
+      if i in alphabet_list:
+
         index_letter = alphabet_list.index(i)
         if(index_letter + shift >= list_length):
             new_index = ((index_letter +shift) - list_length)
@@ -10,6 +14,8 @@ def caeser_encrypt(text,shift):
         else:
             new_index = index_letter + shift
             encrypted_list.append(alphabet_list[new_index])
+      else:
+        encrypted_list.append(i)
     encrypted_text = "".join(encrypted_list)
     return(encrypted_text)
 
@@ -18,9 +24,12 @@ def caeser_encrypt(text,shift):
 def caeser_decrypt(text,shift):
     original_word =[]
     for i in text:
+      if i in alphabet_list:
         index_letter = alphabet_list.index(i)
         new_index = index_letter -shift
         original_word.append(alphabet_list[new_index])
+      else:
+        original_word.append(i)
     decrypted_text = "".join(original_word)
     return(decrypted_text)
 
@@ -47,3 +56,6 @@ while stop_var=='no':
         break
     else:
         continue
+
+
+
