@@ -1,0 +1,28 @@
+from replit import clear
+
+#max bidder function:
+def max_bidder(bidders):
+  max_value = 0
+  for key in bidders:
+    number =  bidders[key]
+    if number> max_value:
+      max_value = number
+      max_bidder_name = key
+  return([max_value,max_bidder_name])
+print("Welcome to the secret Auction program\n\n ")
+
+to_continue =True
+bidders_list ={}
+while to_continue:
+  name_of_bidder = input("Hello There! What is your name?: \n")
+  bid_amount = int(input("Please enter your bid amount: \n"))
+  bidders_list[name_of_bidder] = bid_amount
+  other_bidders = input("Are there any other bidders? Please enter yes or no: ").lower()
+  clear()
+  if other_bidders =="yes":
+    continue
+  else:
+    to_continue =False
+
+max_bidder = max_bidder(bidders_list)
+print(f"\n\nThe winner is {max_bidder[1]} with a bid of {max_bidder[0]}")
